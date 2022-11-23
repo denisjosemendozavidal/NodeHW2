@@ -42,7 +42,7 @@ const createUser = (obj) => {
 
 const deleteUser = (id) => {
 
-    let index = 5;
+    let index = usersDB.length;
   
     let arrOfIndex = usersDB.map(user => {
       if (user.id == id) {
