@@ -8,7 +8,7 @@ const getAllUsers = (request, response) => {
 
 const getUserById = (request, response) => {
     const id = request.params.id
-    const data = taskControllers.findUserById()
+    const data = taskControllers.findUserById(id)
 
     if (data) {
         response.status(200).json(data)
@@ -28,8 +28,22 @@ const postUser = (request, response) => {
     }
 }
 
+const removeUser = (request, response) => {
+    const id = request.params.id
+    
+    const data = taskControllers.deleteUser(id)
+
+    if (data) {
+        response.status(200).json(data)
+    } else {
+        response.status(404).json({message: 'Invalid ID'})
+    }
+   
+}
+
 module.exports = {
     getAllUsers,
     getUserById,
     postUser,
+    removeUser,
 }

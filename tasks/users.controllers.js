@@ -40,8 +40,28 @@ const createUser = (obj) => {
     return newUser
 }
 
+const deleteUser = (id) => {
+
+    let index = 5;
+  
+    let arrOfIndex = usersDB.map(user => {
+      if (user.id == id) {
+        index = usersDB.indexOf(user)
+      }
+    })
+
+    if (index >= 0 && index < usersDB.length) {
+    const removeUser = usersDB.splice(index, 1)
+    return usersDB
+    } else {
+    return undefined
+    }
+   
+  }
+
 module.exports = { 
     findAllUsers,
     findUserById,
     createUser,
+    deleteUser,
 }
