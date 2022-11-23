@@ -40,7 +40,7 @@ const createUser = (obj) => {
     return newUser
 }
 
-module.exports = { //This is how you export what was created in this file
+module.exports = { 
     findAllUsers,
     findUserById,
     createUser,
