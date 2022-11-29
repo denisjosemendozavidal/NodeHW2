@@ -1,3 +1,4 @@
+const { response } = require('express')
 const taskControllers = require('./users.controllers')
 
 
@@ -41,9 +42,26 @@ const removeUser = (request, response) => {
    
 }
 
+const updateU = (request, response) => {
+    const id = request.params.id
+
+    const obj = request.body
+
+    const data = taskControllers.updateUser(obj, id)
+
+    if (data) {
+        response.status(200).json(data)
+    } else {
+        response.status(404).json({message: 'Id must match / Invalid ID'})
+    }
+
+
+}
+
 module.exports = {
     getAllUsers,
     getUserById,
     postUser,
     removeUser,
+    updateU,
 }

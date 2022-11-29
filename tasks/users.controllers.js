@@ -59,9 +59,31 @@ const deleteUser = (id) => {
    
   }
 
+const updateUser = (obj, id) => {
+
+  if (obj.first_name && obj.last_name && obj.email) {
+    let user = usersDB.map (user => {
+      if (id == user.id) {
+        user.first_name = obj.first_name 
+        user.last_name = obj.last_name 
+        user.email = obj.email
+        user.password = obj.password 
+        user.birthday = obj.birthday 
+        return usersDB
+      } else {
+        return undefined
+      }
+      
+    })
+  } 
+  
+  
+}
+
 module.exports = { 
     findAllUsers,
     findUserById,
     createUser,
     deleteUser,
+    updateUser,
 }
