@@ -42,7 +42,7 @@ const removeUser = (request, response) => {
    
 }
 
-const updateU = (request, response) => {
+const updateU = (request, response) => { //Note to self: This is a bug need fixing. 
     const id = request.params.id
 
     const obj = request.body

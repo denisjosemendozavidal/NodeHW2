@@ -59,7 +59,7 @@ const deleteUser = (id) => {
    
   }
 
-const updateUser = (obj, id) => {
+const updateUser = (obj, id) => { //Note to self: This is a bug need fixing. 
 
   if (obj.first_name && obj.last_name && obj.email) {
     let user = usersDB.map (user => {

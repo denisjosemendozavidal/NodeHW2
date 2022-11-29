@@ -10,7 +10,7 @@ router.delete('/users/:id', userServices.removeUser)
 
 router.get('/users/:id', userServices.getUserById)
 
-router.put('/users/:id', userServices.updateU)
+router.put('/users/:id', userServices.updateU) //Note to self: This is a bug need fixing. 
 
 
 module.exports = router
