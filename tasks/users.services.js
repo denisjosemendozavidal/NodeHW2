@@ -45,14 +45,14 @@ const removeUser = (request, response) => {
 const updateU = (request, response) => { //Note to self: This is a bug need fixing. 
     const id = request.params.id
 
-    const obj = request.body
+    const {first_name, last_name, email, password, birthday} = request.body
 
-    const data = taskControllers.updateUser(obj, id)
+    const data = taskControllers.updateUser(id, {first_name, last_name, email, password, birthday})
 
     if (data) {
-        response.status(200).json(data)
+        return response.status(200).json({message: 'Updated, succesfully'})
     } else {
-        response.status(404).json({message: 'Id must match / Invalid ID'})
+        return response.status(404).json({message: 'Id must match / Invalid ID'})
     }
 
 

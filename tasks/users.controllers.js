@@ -59,26 +59,29 @@ const deleteUser = (id) => {
    
   }
 
-const updateUser = (obj, id) => { //Note to self: This is a bug need fixing. 
+const updateUser = (id, {first_name, last_name, email, password, birthday}) => { //Note to self: This is a bug need fixing. 
+  let user = usersDB.map (user => {
+    if (id == user.id) {
+      user.first_name = first_name 
+      user.last_name = last_name 
+      user.email = email
+      user.password = password 
+      user.birthday = birthday 
+      return user
+    } else {
+      return undefined
+    }
+  })
 
-  if (obj.first_name && obj.last_name && obj.email) {
-    let user = usersDB.map (user => {
-      if (id == user.id) {
-        user.first_name = obj.first_name 
-        user.last_name = obj.last_name 
-        user.email = obj.email
-        user.password = obj.password 
-        user.birthday = obj.birthday 
-        return usersDB
-      } else {
-        return undefined
-      }
-      
-    })
+    if (user) {
+      return usersDB
+    } else {
+      return undefined
+    }
+
   } 
   
   
-}
 
 module.exports = { 
     findAllUsers,
